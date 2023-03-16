@@ -39,7 +39,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-west-1
           cluster-name: wordpress-eks-cluster
-          config-files: helm//values.yaml
+          config-files: helm/values.yaml
           chart-path: helm/
           namespace: default
           name: release_name
