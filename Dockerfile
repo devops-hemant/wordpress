@@ -1,4 +1,4 @@
-FROM wordpress
+FROM php:8.2-apache
 
 RUN  mkdir -p /var/www/html/wp-content/uploads/
 
