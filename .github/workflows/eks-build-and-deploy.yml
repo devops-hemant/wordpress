@@ -9,7 +9,7 @@ jobs:
   docker:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout git
+      - name: git checkout 
         uses: actions/checkout@v3
 
       - name: genarating wp-config.php
@@ -19,6 +19,7 @@ jobs:
           sed -ri -e 's!username_here!${{ secrets.DATABASE_USERNAME }}!g' ./wp-config.php
           sed -ri -e 's!password_here!${{ secrets.DATABASE_PASSWORD }}!g' ./wp-config.php
           sed -ri -e 's!localhost!${{ secrets.DATABASE_HOST }}!g' ./wp-config.php
+          ls -la
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
