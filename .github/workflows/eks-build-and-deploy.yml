@@ -31,6 +31,7 @@ jobs:
         run: |
           docker build . -t hemant19092/wordpressproject:latest
           docker push hemant19092/wordpressproject:latest
+          ls -la
 
       - name: Deploy Helm
         uses: bitovi/github-actions-deploy-eks-helm@v1.2.2
