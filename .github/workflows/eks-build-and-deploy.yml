@@ -14,6 +14,7 @@ jobs:
 
       - name: genarating wp-config.php
         run: |
+          rm -rf ./wp-config.php
           cp ./wp-config-sample.php ./wp-config.php
           sed -ri -e 's!database_name_here!${{ secrets.DATABASE_NAME }}!g' ./wp-config.php
           sed -ri -e 's!username_here!${{ secrets.DATABASE_USERNAME }}!g' ./wp-config.php
