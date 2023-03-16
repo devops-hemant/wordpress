@@ -20,6 +20,7 @@ jobs:
           sed -ri -e 's!password_here!${{ secrets.DATABASE_PASSWORD }}!g' ./wp-config.php
           sed -ri -e 's!localhost!${{ secrets.DATABASE_HOST }}!g' ./wp-config.php
           ls -la
+          cat ./wp-config.php
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
