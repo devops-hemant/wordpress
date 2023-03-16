@@ -3,53 +3,53 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: {{ .Release.Name }}-app-deployment
-  name: {{ .Release.Name }}-app-deployment
+    app: {{ .Release.Name }}-deployment
+  name: {{ .Release.Name }}-deployment
 spec:
   replicas: {{ .Values.app_deployment_replicas }}
   selector:
     matchLabels:
-      app: wpdeploy
+      app: wordpress
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: wpdeploy
+        app: wordpress
     spec:
       containers:
       - image: {{ .Values.app_image }}
         name: wordpress
         ports:
         - containerPort: 80
-        env:
-        - name: WORDPRESS_DB_HOST
-          value: {{ .Release.Name }}-db-svc
-        - name: WORDPRESS_DB_USER
-          value: {{ .Values.WORDPRESS_DB_USER }}
-        - name: WORDPRESS_DB_PASSWORD
-          value: {{ .Values.WORDPRESS_DB_PASSWORD }}
-        - name: WORDPRESS_DB_NAME
-          value: {{ .Values.WORDPRESS_DB_NAME }}
-          # - name: WORDPRESS_DB_HOST
-          #   valueFrom:
-          #     configMapKeyRef:
-          #       name: my-config
-          #       key: WORDPRESS_DB_HOST
-          # - name: WORDPRESS_DB_NAME
-          #   valueFrom:
-          #     configMapKeyRef:
-          #       name: my-config
-          #       key: WORDPRESS_DB_NAME
-          # - name: WORDPRESS_DB_USER
-          #   valueFrom:
-          #     secretKeyRef:
-          #       name: my-secret
-          #       key: WORDPRESS_DB_USER
-          # - name: MARIADB_ROOT_PASSWORD
-          #   valueFrom:
-          #     secretKeyRef:
-          #       name: my-secret
-          #       key: MARIADB_ROOT_PASSWORD
-        resources: {}
-status: {}
+#         env:
+#         - name: WORDPRESS_DB_HOST
+#           value: {{ .Release.Name }}-db-svc
+#         - name: WORDPRESS_DB_USER
+#           value: {{ .Values.WORDPRESS_DB_USER }}
+#         - name: WORDPRESS_DB_PASSWORD
+#           value: {{ .Values.WORDPRESS_DB_PASSWORD }}
+#         - name: WORDPRESS_DB_NAME
+#           value: {{ .Values.WORDPRESS_DB_NAME }}
+#           # - name: WORDPRESS_DB_HOST
+#           #   valueFrom:
+#           #     configMapKeyRef:
+#           #       name: my-config
+#           #       key: WORDPRESS_DB_HOST
+#           # - name: WORDPRESS_DB_NAME
+#           #   valueFrom:
+#           #     configMapKeyRef:
+#           #       name: my-config
+#           #       key: WORDPRESS_DB_NAME
+#           # - name: WORDPRESS_DB_USER
+#           #   valueFrom:
+#           #     secretKeyRef:
+#           #       name: my-secret
+#           #       key: WORDPRESS_DB_USER
+#           # - name: MARIADB_ROOT_PASSWORD
+#           #   valueFrom:
+#           #     secretKeyRef:
+#           #       name: my-secret
+#           #       key: MARIADB_ROOT_PASSWORD
+#         resources: {}
+# status: {}

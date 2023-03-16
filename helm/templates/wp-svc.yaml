@@ -12,7 +12,7 @@ spec:
     protocol: TCP
     targetPort: 80
   selector:
-    app: wpdeploy
+    app: wordpress
   type: LoadBalancer
 status:
   loadBalancer: {}
