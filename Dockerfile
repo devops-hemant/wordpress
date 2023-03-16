@@ -1,3 +1,6 @@
-FROM php:8.1-apache
+FROM wordpress
 
 COPY . /var/www/html/
+
+
+

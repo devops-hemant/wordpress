@@ -1,0 +1,5 @@
+app_deployment_replicas: 1
+app_image: docker.io/hemant19092/wordpressproject:latest
+WORDPRESS_DB_USER: hemant
+WORDPRESS_DB_PASSWORD: admin123
+WORDPRESS_DB_NAME: mywordpressdb
