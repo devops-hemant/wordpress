@@ -42,4 +42,4 @@ jobs:
           config-files: helm/values.yaml
           chart-path: helm/
           namespace: default
-          name: release_name
+          name: wordpress
