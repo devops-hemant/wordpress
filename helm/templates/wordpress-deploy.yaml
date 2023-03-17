@@ -22,34 +22,10 @@ spec:
         name: wordpress
         ports:
         - containerPort: 80
-#         env:
-#         - name: WORDPRESS_DB_HOST
-#           value: {{ .Release.Name }}-db-svc
-#         - name: WORDPRESS_DB_USER
-#           value: {{ .Values.WORDPRESS_DB_USER }}
-#         - name: WORDPRESS_DB_PASSWORD
-#           value: {{ .Values.WORDPRESS_DB_PASSWORD }}
-#         - name: WORDPRESS_DB_NAME
-#           value: {{ .Values.WORDPRESS_DB_NAME }}
-#           # - name: WORDPRESS_DB_HOST
-#           #   valueFrom:
-#           #     configMapKeyRef:
-#           #       name: my-config
-#           #       key: WORDPRESS_DB_HOST
-#           # - name: WORDPRESS_DB_NAME
-#           #   valueFrom:
-#           #     configMapKeyRef:
-#           #       name: my-config
-#           #       key: WORDPRESS_DB_NAME
-#           # - name: WORDPRESS_DB_USER
-#           #   valueFrom:
-#           #     secretKeyRef:
-#           #       name: my-secret
-#           #       key: WORDPRESS_DB_USER
-#           # - name: MARIADB_ROOT_PASSWORD
-#           #   valueFrom:
-#           #     secretKeyRef:
-#           #       name: my-secret
-#           #       key: MARIADB_ROOT_PASSWORD
-#         resources: {}
-# status: {}
+        volumeMounts:
+        - name: persistent-storage
+          mountPath: /var/www/html/wp-content/uploads
+      volumes:
+      - name: persistent-storage
+        persistentVolumeClaim:
+          claimName: efs-claim
