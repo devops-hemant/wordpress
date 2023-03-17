@@ -24,7 +24,7 @@ spec:
         - containerPort: 80
         volumeMounts:
         - name: persistent-storage
-          mountPath: /wp-content/uploads/
+          mountPath: /wp-content
       volumes:
       - name: persistent-storage
         persistentVolumeClaim:
