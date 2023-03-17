@@ -1,3 +1,3 @@
-app_deployment_replicas: 1
+app_deployment_replicas: 3
 app_image: docker.io/hemant19092/wordpressproject:latest
 WORDPRESS_DB_NAME: wordpress
