@@ -22,10 +22,9 @@ spec:
         name: wordpress
         ports:
         - containerPort: 80
-      #   volumeMounts:
-      #   - name: persistent-storage
-      #     mountPath: /wp-content
-      # volumes:
-      # - name: persistent-storage
-      #   persistentVolumeClaim:
-      #     claimName: efs-claim1
+      - name: persistent-storage
+        mountPath: /data
+  volumes:
+  - name: persistent-storage
+    persistentVolumeClaim:
+      claimName: efs-claim
